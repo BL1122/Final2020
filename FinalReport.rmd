@@ -66,7 +66,7 @@ colPerc(table1)
 print(table1)
 ```
 
-The numerical summary shows that 337 males got infected with Covid-19 out of a total of 10,450 males in the study. It appears in the table that 3.72% of the males that received the drug got covid-19 and 2.55% of the males that received the placebo got covid-19. It doesn't appear that the drug is not effective at preventing covid within this study of males.
+The numerical summary shows that 337 males got infected with Covid-19 out of a total of 10,450 males in the study. It appears in the table that 3.72% of the males that received the drug got covid-19 and 2.55% of the males that received the placebo got covid-19. It doesn't appear that the drug is effective at preventing covid within this study of males.
 
 ## Inferential  
 
@@ -76,7 +76,7 @@ chisqtestGC(table1)
 fisher.test(table1)
 ```
 
-In the table using Chi-squared test shows that the p-vaule is 0.0006181 which is smaller that 1. It appears in the Fisher's Exact Test that you are 1.47% more likely to contract covid-19 if you take the drug. The Effectiveness of the drug is 59.5% using the formula 1.47/2.47*100= 59.5%. We can reject the null hypothesis because the drug is ineffective in preventing Covid-19 within males. 
+In the table using Chi-squared test shows that the p-vaule is 0.0006181 which is smaller that 1. It appears in the Fisher's Exact Test that you are 1.47% more likely to contract covid-19 if you take the drug. The Effectiveness of the drug is 59.5% using the formula 1.47/2.47*100= 59.5%. Therefore the vaccine is only 40% effective in th male population and doesn't seem to be effective. We can reject the null hypothesis because the drug is ineffective in preventing Covid-19 within males. 
 
 # Gals "sex = gal"
 
