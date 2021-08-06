@@ -150,6 +150,28 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 ```
 
 
+
+## Numerical Summary
+
+```{r}
+table3 <- xtabs(~treatment + infected, data=LGBTQdata)
+rowPerc(table3)
+colPerc(table3)
+print(table3)
+```
+
+
+
+## Inferential
+
+```{r}
+chisq.test(table3)
+chisqtestGC(table3)
+fisher.test(table3)
+```
+
+
+
 # Drug Users "Drug User = yes"
 
 ```{r}
