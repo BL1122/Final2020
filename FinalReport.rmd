@@ -80,6 +80,49 @@ In the table using Chi-squared test shows that the p-vaule is 0.0006181 which is
 
 # Gals "sex = gal"
 
+```{r}
+femaledata<- filter(FinalData,sex=="gal")
+femaledata$sex <- as.factor(femaledata$sex)
+```
+
+## Bar Chart 
+
+```{r}
+Gals <- femaledata %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
+
+
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(Gals,aes(x=infected,y=count,fill=treatment))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(Gals,aes(x=infected,y=prcnt*100,fill=treatment)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+
+
+
+## Numerical Summary
+
+```{r}
+table1 <- xtabs(~treatment + infected, data=femaledata)
+rowPerc(table1)
+colPerc(table1)
+print(table1)
+```
+
+
+
+## Inferential
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
 
 # Sexual Orientation "LGBTQ = gay"
 
