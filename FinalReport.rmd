@@ -132,6 +132,24 @@ LGBTQdata<- filter(FinalData,LGBTQ=="gay")
 LGBTQdata$LGBTQ <- as.factor(LGBTQdata$LGBTQ)
 ```
 
+## Bar Chart 
+
+```{r}
+LGBTQ <- LGBTQdata %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
+
+
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(LGBTQ,aes(x=infected,y=count,fill=treatment))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(LGBTQ,aes(x=infected,y=prcnt*100,fill=treatment)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+
+
 # Drug Users "Drug User = yes"
 
 ```{r}
