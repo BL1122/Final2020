@@ -130,6 +130,52 @@ In the table Chi-Square test results it shows that the p-vaule is 3.626e-16. Usi
 
 # Drug Users "Drug User = yes"
 
+```{r}
+Druggiedata<- filter(FinalData,DrugUser=="yes")
+Druggiedata$DrugUser <- as.factor(Druggiedata$DrugUser)
+```
+
+## Bar Chart 
+
+```{r}
+Druggie <- Druggiedata %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
+
+
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(Druggie,aes(x=infected,y=count,fill=treatment))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(Druggie,aes(x=infected,y=prcnt*100,fill=treatment)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+
+Using the bar chart for the study of Drug Users, about 34% of those that received the drug contracted covid-19 and about 66% of those that received the placebo contracted covid-19. It appears that those drug users that received the vaccine, less that 50% contracted covid-19.
+
+## Numerical Summary
+
+```{r}
+table4 <- xtabs(~treatment + infected, data=DrugUserdata)
+rowPerc(table4)
+colPerc(table4)
+print(table4)
+```
+
+The numerical summary shows that 117 drug users were infected with covid-19 out of 2,166 drug users in this study. It appers in the table that 3.63% of drug users that received the drug contracted covid-19 and 6.46% that received the placebo contracted covid-19. It appears that the drug is effective in preventing covid-19 in drug users within this study.
+
+## Inferential
+
+```{r}
+chisq.test(table4)
+chisqtestGC(table4)
+fisher.test(table4)
+```
+
+The effectiveness of the vaccine is 35%.
+
+
 
 # Discussion & Conclusion
 
