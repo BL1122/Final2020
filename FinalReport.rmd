@@ -3,7 +3,8 @@ title: "Covid91 vaccine study Final2021"
 author: "Bessie Luevano"
 date: "Summer 2021"
 output: 
-    html_document:
+  html_document:
+    number_sections: true
     toc: true
     toc_depth: 5
 ---
