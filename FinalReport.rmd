@@ -55,7 +55,7 @@ basicCC <- ggplot(Guys,aes(x=infected,y=prcnt*100,fill=treatment))
 basicCC + geom_bar(stat="identity", position = "dodge")
 ```
 
-It appears in the bar chart that around 58% of males that were given the drug got Covid-19. About 42% of males that got Covid-19 were given the placebo. It appears that the bar chart shows that males you received the vaccine were about 50% more likely to contract covid-19. 
+It appears in the bar chart that around 58% of males that were given the drug got Covid-19. About 42% of males that got Covid-19 were given the placebo. It appears that the bar chart shows that males who received the vaccine were about 50% more likely to contract covid-19. 
 
 ## Numerical Summary
 
@@ -66,7 +66,7 @@ colPerc(table1)
 print(table1)
 ```
 
-The numerical summary shows that 337 males got infected with Covid-19 out of a total of 10,450 males in the study. It appears in the table that 3.72% of the males that received the drug got covid-19 and 2.55% of the males that received the placebo got covid-19. It doesn't appear that the drug is effective at preventing covid within this study of males.
+The numerical summary shows that 337 males got infected with Covid-19 out of a total of 10,450 males in the study. It appears in the table that 3.72% of the males that received the drug got covid-19 and 2.55% of the males that received the placebo got covid-19. It doesn't appear that the drug is not effective at preventing covid within this study of males.
 
 ## Inferential  
 
@@ -102,18 +102,18 @@ basicCC <- ggplot(Gals,aes(x=infected,y=prcnt*100,fill=treatment))
 basicCC + geom_bar(stat="identity", position = "dodge")
 ```
 
-
+It appears from the bar chart that about 33% of females that took the drug contracted covid-19. About 66% of females that got the placebo contracted covid-19. It appears from the chart that less than 50% of females who took the drug contracted covid-19.
 
 ## Numerical Summary
 
 ```{r}
 table2 <- xtabs(~treatment + infected, data=femaledata)
-rowPerc(table1)
-colPerc(table1)
-print(table1)
+rowPerc(table2)
+colPerc(table2)
+print(table2)
 ```
 
-
+Looking at the numerical summary it shows that 607 femaleswere infected with covid-19 from a study of 8,606 females. It appears in the table that 4.44% of females that received the drug got covid-19 and 8.67% of the females that received the placebo contracted covid-19. It appears that the drug is some what effective in preventing covid-19 within this study of females. 
 
 ## Inferential
 
@@ -123,6 +123,7 @@ chisqtestGC(table2)
 fisher.test(table2)
 ```
 
+In the table Chi-Square test results it shows that the p-vaule is 3.626e-16. Using Fisher's exact test the odds ratio shows that you are 0.489% likely to contract covid-19 if you take the drug. The vaccine is 67% effective in females using 2.04/(1+2.045)*100
 
 # Sexual Orientation "LGBTQ = gay"
 
