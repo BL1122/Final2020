@@ -127,6 +127,10 @@ In the table Chi-Square test results it shows that the p-vaule is 3.626e-16. Usi
 
 # Sexual Orientation "LGBTQ = gay"
 
+```{r}
+LGBTQdata<- filter(FinalData,LGBTQ=="gay")
+LGBTQdata$LGBTQ <- as.factor(LGBTQdata$LGBTQ)
+```
 
 # Drug Users "Drug User = yes"
 
