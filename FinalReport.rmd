@@ -107,7 +107,7 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 ## Numerical Summary
 
 ```{r}
-table1 <- xtabs(~treatment + infected, data=femaledata)
+table2 <- xtabs(~treatment + infected, data=femaledata)
 rowPerc(table1)
 colPerc(table1)
 print(table1)
@@ -118,9 +118,9 @@ print(table1)
 ## Inferential
 
 ```{r}
-chisq.test(table1)
-chisqtestGC(table1)
-fisher.test(table1)
+chisq.test(table2)
+chisqtestGC(table2)
+fisher.test(table2)
 ```
 
 
