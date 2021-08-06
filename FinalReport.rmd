@@ -66,7 +66,7 @@ colPerc(table1)
 print(table1)
 ```
 
-The numerical summary shows that 337 males got infected with Covid-19 out of a total of 10,450 males in the study. It appears in the table that 3.72% of the males that received the drug got covid-19 and 2.55% of the males that received the placebo got covid-19. It doesn't appear that the drug is not effective at preventing covid within this study of males.
+The numerical summary shows that 337 males got infected with Covid-19 out of a total of 10,787 males in the study. It appears in the table that 3.72% of the males that received the drug got covid-19 and 2.55% of the males that received the placebo got covid-19. It doesn't appear that the drug is not effective at preventing covid within this study of males.
 
 ## Inferential  
 
@@ -76,7 +76,13 @@ chisqtestGC(table1)
 fisher.test(table1)
 ```
 
-In the table using Chi-squared test shows that the p-vaule is 0.0006181 which is smaller that 1. It appears in the Fisher's Exact Test that you are 1.47% more likely to contract covid-19 if you take the drug. The Effectiveness of the drug is 59.5% using the formula 1.47/2.47*100= 59.5%. Therefore the vaccine is only 40% effective in th male population and doesn't seem to be effective. We can reject the null hypothesis because the drug is ineffective in preventing Covid-19 within males. 
+In the table using Chi-squared test shows that the p-vaule is 0.0006181 which is smaller that 1. It appears in the Fisher's Exact Test that you are 1.47% more likely to contract covid-19 if you take the drug. The Effectiveness of the drug is 59.5% using the formula 1.47/2.47*100= 59.5%. Therefore the vaccine is only 40% effective in th male population and doesn't seem to be effective.  
+
+The null hypothesis states that the vaccine doesn't prevent males from contracting covid-19.
+
+The alternative hypothesis states that the vaccine does prevent males from contracting covid-19.
+
+Therefore, we can reject the null hypothesis because the drug is ineffective in preventing Covid-19 within males.
 
 # Gals "sex = gal"
 
@@ -113,7 +119,7 @@ colPerc(table2)
 print(table2)
 ```
 
-Looking at the numerical summary it shows that 607 femaleswere infected with covid-19 from a study of 8,606 females. It appears in the table that 4.44% of females that received the drug got covid-19 and 8.67% of the females that received the placebo contracted covid-19. It appears that the drug is some what effective in preventing covid-19 within this study of females. 
+Looking at the numerical summary it shows that 607 females were infected with covid-19 from a study of 9,213 females. It appears in the table that 4.44% of females that received the drug got covid-19 and 8.67% of the females that received the placebo contracted covid-19. It appears that the drug is some what effective in preventing covid-19 within this study of females. 
 
 ## Inferential
 
@@ -123,7 +129,14 @@ chisqtestGC(table2)
 fisher.test(table2)
 ```
 
-In the table Chi-Square test results it shows that the p-vaule is 3.626e-16. Using Fisher's exact test the odds ratio shows that you are 0.489% likely to contract covid-19 if you take the drug. The vaccine is 67% effective in females using 2.04/(1+2.045)*100
+In the table Chi-Square test results it shows that the p-vaule is 3.626e-16. Using Fisher's exact test the odds ratio shows that you are 0.489% likely to contract covid-19 if you take the drug. The vaccine is 67% effective in females using 2.04/(1+2.045)*100.
+
+The null hypothesis states that the vaccine doesn't prevent females from contracting covid-19.
+
+The alternative hypothesis would be that the vaccine can prevent females from contracting covid-19.
+
+Therefore, we can reject the null hypothesis.
+
 
 # Sexual Orientation "LGBTQ = gay"
 
@@ -149,7 +162,7 @@ basicCC <- ggplot(LGBTQ,aes(x=infected,y=prcnt*100,fill=treatment))
 basicCC + geom_bar(stat="identity", position = "dodge")
 ```
 
-
+It appears from the bar chart that about 71% of LGBTQ population that took the drug contracted covid-19. About 29% of LGBTQ population that got the placebo contracted covid-19. It appears from the chart that more than 50% of the LGBTQ population who took the drug contracted covid-19.
 
 ## Numerical Summary
 
@@ -160,7 +173,7 @@ colPerc(table3)
 print(table3)
 ```
 
-
+Looking at the numerical summary it shows that 116 LGBTQ population were infected with covid-19 from a study of 2042 LGBTQ population. It appears in the table that 70.69% of LGBTQ population that received the drug got covid-19 and 29.31% of the LGBTQ population that received the placebo contracted covid-19. It appears that the drug is not effective in preventing covid-19 within this study of LGBTQ population.
 
 ## Inferential
 
@@ -170,6 +183,13 @@ chisqtestGC(table3)
 fisher.test(table3)
 ```
 
+In the table Chi-Square test results it shows that the p-vaule is 1.05e-05. Using Fisher's exact test the odds ratio shows that you are 2.5% likely to contract covid-19 if you take the drug. The vaccine is 29% effective in LGBTQ population.
+
+The null hypothesis states that the vaccine doesn't prevent LGBTQ population from contracting covid-19.
+
+The alternative hypothesis would be that the vaccine can prevent LGBTQ population from contracting covid-19.
+
+Therefore, we can reject the null hypothesis because the vaccine is not effective in preventing covid-19.
 
 
 # Drug Users "Drug User = yes"
@@ -201,13 +221,13 @@ Using the bar chart for the study of Drug Users, about 34% of those that receive
 ## Numerical Summary
 
 ```{r}
-table4 <- xtabs(~treatment + infected, data=DrugUserdata)
+table4 <- xtabs(~treatment + infected, data=Druggiedata)
 rowPerc(table4)
 colPerc(table4)
 print(table4)
 ```
 
-The numerical summary shows that 117 drug users were infected with covid-19 out of 2,166 drug users in this study. It appers in the table that 3.63% of drug users that received the drug contracted covid-19 and 6.46% that received the placebo contracted covid-19. It appears that the drug is effective in preventing covid-19 in drug users within this study.
+The numerical summary shows that 117 drug users were infected with covid-19 out of 2,283 drug users in this study. It appers in the table that 33.3% of drug users that received the drug contracted covid-19 and 66.7% that received the placebo contracted covid-19. It appears that the drug is effective in preventing covid-19 in drug users within this study.
 
 ## Inferential
 
@@ -217,8 +237,13 @@ chisqtestGC(table4)
 fisher.test(table4)
 ```
 
-The effectiveness of the vaccine is 35%.
+In the table Chi-Square test results it shows that the p-vaule is 0.003028. Using Fisher's exact test the odds ratio shows that you are 0.55% likely to contract covid-19 if you take the drug. The vaccine is 65% effective in drug users.
 
+The null hypothesis states that the vaccine doesn't prevent drug users from contracting covid-19.
+
+The alternative hypothesis would be that the vaccine can prevent drug users from contracting covid-19.
+
+Therefore, we can reject the null hypothesis.
 
 
 # Discussion & Conclusion
